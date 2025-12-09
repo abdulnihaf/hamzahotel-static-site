@@ -1,0 +1,1539 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Hamza Hotel - Over 100 Years of Legendary Taste. Serving authentic Bangalore Muslim cuisine since 1918.">
+    <meta name="keywords" content="Hamza Hotel, Biryani, Shivajinagar, Bangalore, Since 1918, Mutton Biryani">
+    <title>Hamza Hotel | Since 1918 | Over 100 Years of Legendary Taste</title>
+    
+    <!-- Favicon - Use your icon -->
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    
+    <!-- Google Fonts - Fallback for Times New Roman -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
+    
+    <style>
+        /* ================================================
+           CSS VARIABLES - BRAND COLORS & TYPOGRAPHY
+           ================================================ */
+        :root {
+            /* Grayscale Palette from Brand */
+            --color-black-pure: #010101;
+            --color-black-deep: #131313;
+            --color-black-text: #1D1E1E;
+            --color-gray-dark: #333333;
+            --color-gray-medium: #676767;
+            --color-gray-light: #919191;
+            --color-gray-border: #D1D1D1;
+            --color-gray-subtle: #E5E5E5;
+            --color-white-off: #FAFAFA;
+            --color-cream: #F5F2ED;
+            --color-white: #FFFFFF;
+            
+            /* Typography */
+            --font-primary: 'Times New Roman', 'Playfair Display', Georgia, serif;
+            --font-weight-regular: 400;
+            --font-weight-bold: 700;
+            
+            /* Spacing */
+            --spacing-xs: 0.5rem;
+            --spacing-sm: 1rem;
+            --spacing-md: 2rem;
+            --spacing-lg: 4rem;
+            --spacing-xl: 6rem;
+            --spacing-2xl: 8rem;
+            
+            /* Transitions */
+            --transition-fast: 0.2s ease;
+            --transition-medium: 0.4s ease;
+            --transition-slow: 0.6s ease;
+            
+            /* Container */
+            --container-max: 1200px;
+            --container-narrow: 800px;
+        }
+        
+        /* ================================================
+           RESET & BASE STYLES
+           ================================================ */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+        
+        body {
+            font-family: var(--font-primary);
+            font-weight: var(--font-weight-regular);
+            color: var(--color-black-text);
+            background-color: var(--color-white-off);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+        
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        ul, ol {
+            list-style: none;
+        }
+        
+        /* ================================================
+           UTILITY CLASSES
+           ================================================ */
+        .container {
+            width: 100%;
+            max-width: var(--container-max);
+            margin: 0 auto;
+            padding: 0 var(--spacing-md);
+        }
+        
+        .container--narrow {
+            max-width: var(--container-narrow);
+        }
+        
+        .text-center {
+            text-align: center;
+        }
+        
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            border: 0;
+        }
+        
+        /* ================================================
+           TYPOGRAPHY STYLES
+           ================================================ */
+        .headline-hero {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
+        }
+        
+        .headline-section {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            font-weight: var(--font-weight-bold);
+            line-height: 1.2;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .headline-sub {
+            font-size: clamp(1rem, 2vw, 1.25rem);
+            font-weight: var(--font-weight-regular);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-gray-medium);
+        }
+        
+        .text-body {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-gray-dark);
+        }
+        
+        .text-small {
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+        
+        /* ================================================
+           DECORATIVE ELEMENTS
+           ================================================ */
+        .divider {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-sm);
+            margin: var(--spacing-md) 0;
+        }
+        
+        .divider::before,
+        .divider::after {
+            content: '';
+            width: 60px;
+            height: 1px;
+            background-color: var(--color-black-deep);
+        }
+        
+        .divider__stars {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .divider__star {
+            width: 8px;
+            height: 8px;
+            background-color: var(--color-black-deep);
+            transform: rotate(45deg);
+        }
+        
+        .flourish {
+            width: 200px;
+            height: 30px;
+            margin: var(--spacing-sm) auto;
+            opacity: 0.8;
+        }
+        
+        .flourish--top {
+            transform: rotate(180deg);
+        }
+        
+        /* ================================================
+           NAVIGATION
+           ================================================ */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background-color: rgba(250, 250, 250, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--color-gray-border);
+            transition: var(--transition-medium);
+        }
+        
+        .nav--scrolled {
+            box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .nav__container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+        
+        .nav__logo {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            letter-spacing: 0.05em;
+        }
+        
+        .nav__logo span {
+            font-weight: var(--font-weight-regular);
+            font-size: 1rem;
+            letter-spacing: 0.2em;
+            margin-left: 0.5rem;
+        }
+        
+        .nav__links {
+            display: flex;
+            align-items: center;
+            gap: var(--spacing-lg);
+        }
+        
+        .nav__link {
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            transition: var(--transition-fast);
+        }
+        
+        .nav__link:hover {
+            color: var(--color-gray-medium);
+        }
+        
+        .nav__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.5rem;
+            background-color: var(--color-black-deep);
+            color: var(--color-white);
+            font-size: 0.75rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 2px solid var(--color-black-deep);
+            transition: var(--transition-fast);
+        }
+        
+        .nav__cta:hover {
+            background-color: transparent;
+            color: var(--color-black-deep);
+        }
+        
+        .nav__cta svg {
+            width: 16px;
+            height: 16px;
+        }
+        
+        /* Mobile Nav Toggle */
+        .nav__toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+        }
+        
+        .nav__toggle span {
+            width: 24px;
+            height: 2px;
+            background-color: var(--color-black-deep);
+            transition: var(--transition-fast);
+        }
+        
+        /* ================================================
+           HERO SECTION
+           ================================================ */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: var(--spacing-2xl) var(--spacing-md);
+            background-color: var(--color-white-off);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Subtle background texture */
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            opacity: 0.03;
+            pointer-events: none;
+        }
+        
+        .hero__content {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeInUp 1s ease-out;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        /* ================================================
+           HERO LOGO AREA
+           ================================================ */
+        .hero__logo-container {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-lg);
+            width: 100%;
+        }
+        
+        /* Founder Portrait - Aspect Ratio 1:1.28 */
+        .hero__portrait {
+            width: 280px;
+            height: 358px; /* 280 * 1.28 */
+            flex-shrink: 0;
+        }
+        
+        .hero__portrait img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* Text Logo - Aspect Ratio 1.26:1 */
+        .hero__text-logo {
+            width: 100%;
+            height: 400px; /* 400 / 1.26 */
+        }
+        
+        .hero__text-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        /* Full Logo Version (Alternative) - Aspect Ratio 1.87:1 */
+        .hero__full-logo {
+            width: 600px;
+            height: 321px; /* 600 / 1.87 */
+            margin: 0 auto var(--spacing-lg);
+        }
+        
+        .hero__full-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        
+        .hero__tagline {
+            font-size: clamp(0.875rem, 2vw, 1.125rem);
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: var(--color-gray-dark);
+            margin-top: var(--spacing-md);
+        }
+        
+        .hero__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: var(--spacing-lg);
+            padding: 1rem 2.5rem;
+            background-color: var(--color-black-deep);
+            color: var(--color-white);
+            font-size: 0.875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            border: 2px solid var(--color-black-deep);
+            transition: var(--transition-medium);
+        }
+        
+        .hero__cta:hover {
+            background-color: transparent;
+            color: var(--color-black-deep);
+        }
+        
+        .hero__cta svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* Scroll indicator */
+        .hero__scroll {
+            position: absolute;
+            bottom: var(--spacing-lg);
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: var(--spacing-xs);
+            color: var(--color-gray-medium);
+            animation: bounce 2s infinite;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateX(-50%) translateY(0); }
+            40% { transform: translateX(-50%) translateY(-10px); }
+            60% { transform: translateX(-50%) translateY(-5px); }
+        }
+        
+        .hero__scroll span {
+            font-size: 0.625rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+        }
+        
+        .hero__scroll-icon {
+            width: 24px;
+            height: 40px;
+            border: 2px solid var(--color-gray-medium);
+            border-radius: 12px;
+            position: relative;
+        }
+        
+        .hero__scroll-icon::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 8px;
+            background-color: var(--color-gray-medium);
+            border-radius: 2px;
+            animation: scrollPulse 2s infinite;
+        }
+        
+        @keyframes scrollPulse {
+            0% { opacity: 1; top: 8px; }
+            100% { opacity: 0; top: 20px; }
+        }
+        
+        /* ================================================
+           LEGACY SECTION
+           ================================================ */
+        .legacy {
+            padding: var(--spacing-2xl) var(--spacing-md);
+            background-color: var(--color-cream);
+        }
+        
+        .legacy__header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .legacy__content {
+            display: grid;
+            grid-template-columns: 1fr 1.5fr;
+            gap: var(--spacing-xl);
+            align-items: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .legacy__portrait {
+            width: 100%;
+            max-width: 350px;
+            margin: 0 auto;
+        }
+        
+        /* Portrait container maintaining 1:1.28 ratio */
+        .legacy__portrait-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 128%; /* 1:1.28 ratio */
+            overflow: hidden;
+            border: 8px solid var(--color-black-deep);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+        }
+        
+        .legacy__portrait-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .legacy__text h3 {
+            font-size: 1.5rem;
+            font-weight: var(--font-weight-bold);
+            margin-bottom: var(--spacing-md);
+            line-height: 1.4;
+        }
+        
+        .legacy__text p {
+            font-size: 1.125rem;
+            line-height: 1.9;
+            color: var(--color-gray-dark);
+            margin-bottom: var(--spacing-md);
+        }
+        
+        .legacy__quote {
+            font-style: italic;
+            font-size: 1.25rem;
+            color: var(--color-gray-medium);
+            border-left: 3px solid var(--color-black-deep);
+            padding-left: var(--spacing-md);
+            margin-top: var(--spacing-lg);
+        }
+        
+        /* Stats */
+        .legacy__stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-md);
+            padding: var(--spacing-lg) 0;
+            border-top: 1px solid var(--color-gray-border);
+            border-bottom: 1px solid var(--color-gray-border);
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat__number {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: var(--font-weight-bold);
+            line-height: 1;
+            color: var(--color-black-deep);
+        }
+        
+        .stat__label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gray-medium);
+            margin-top: var(--spacing-xs);
+        }
+        
+        /* ================================================
+           MENU SECTION
+           ================================================ */
+        .menu {
+            padding: var(--spacing-2xl) var(--spacing-md);
+            background-color: var(--color-white-off);
+        }
+        
+        .menu__header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .menu__grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: var(--spacing-lg);
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .menu__item {
+            text-align: center;
+            transition: var(--transition-medium);
+        }
+        
+        .menu__item:hover {
+            transform: translateY(-10px);
+        }
+        
+        .menu__image-wrapper {
+            position: relative;
+            width: 100%;
+            padding-bottom: 100%; /* 1:1 ratio for food images */
+            overflow: hidden;
+            margin-bottom: var(--spacing-md);
+            border: 4px solid var(--color-black-deep);
+        }
+        
+        .menu__image-wrapper img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(30%);
+            transition: var(--transition-medium);
+        }
+        
+        .menu__item:hover .menu__image-wrapper img {
+            filter: grayscale(0%);
+            transform: scale(1.05);
+        }
+        
+        /* Placeholder for images */
+        .menu__placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--color-gray-subtle);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-gray-medium);
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+        }
+        
+        .menu__name {
+            font-size: 1.25rem;
+            font-weight: var(--font-weight-bold);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .menu__desc {
+            font-size: 0.875rem;
+            color: var(--color-gray-medium);
+            font-style: italic;
+        }
+        
+        .menu__cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2rem;
+            background-color: transparent;
+            color: var(--color-black-deep);
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 2px solid var(--color-black-deep);
+            transition: var(--transition-medium);
+        }
+        
+        .menu__cta:hover {
+            background-color: var(--color-black-deep);
+            color: var(--color-white);
+        }
+        
+        /* ================================================
+           EXPERIENCE SECTION
+           ================================================ */
+        .experience {
+            padding: var(--spacing-2xl) var(--spacing-md);
+            background-color: var(--color-black-deep);
+            color: var(--color-white);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        /* Decorative pattern overlay */
+        .experience::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.03'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+            pointer-events: none;
+        }
+        
+        .experience__container {
+            position: relative;
+            z-index: 1;
+        }
+        
+        .experience__header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .experience__header .headline-section {
+            color: var(--color-white);
+        }
+        
+        .experience__header .divider::before,
+        .experience__header .divider::after {
+            background-color: var(--color-white);
+        }
+        
+        .experience__header .divider__star {
+            background-color: var(--color-white);
+        }
+        
+        .experience__grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-lg);
+            max-width: 900px;
+            margin: 0 auto var(--spacing-xl);
+        }
+        
+        .experience__item {
+            display: flex;
+            align-items: flex-start;
+            gap: var(--spacing-md);
+        }
+        
+        .experience__icon {
+            width: 48px;
+            height: 48px;
+            flex-shrink: 0;
+            border: 2px solid var(--color-white);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .experience__icon svg {
+            width: 24px;
+            height: 24px;
+        }
+        
+        .experience__text h4 {
+            font-size: 1rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .experience__text p {
+            font-size: 0.9375rem;
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+        }
+        
+        .experience__quote {
+            text-align: center;
+            font-size: clamp(1.25rem, 3vw, 1.75rem);
+            font-style: italic;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+        }
+        
+        /* ================================================
+           VISIT SECTION
+           ================================================ */
+        .visit {
+            padding: var(--spacing-2xl) var(--spacing-md);
+            background-color: var(--color-cream);
+        }
+        
+        .visit__header {
+            text-align: center;
+            margin-bottom: var(--spacing-xl);
+        }
+        
+        .visit__content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--spacing-xl);
+            align-items: start;
+        }
+        
+        .visit__map {
+            width: 100%;
+            height: 400px;
+            border: 4px solid var(--color-black-deep);
+            background-color: var(--color-gray-subtle);
+        }
+        
+        .visit__map iframe {
+            width: 100%;
+            height: 100%;
+            border: 0;
+            filter: grayscale(100%);
+            transition: var(--transition-medium);
+        }
+        
+        .visit__map:hover iframe {
+            filter: grayscale(50%);
+        }
+        
+        .visit__info {
+            padding: var(--spacing-lg);
+            background-color: var(--color-white);
+            border: 2px solid var(--color-black-deep);
+        }
+        
+        .visit__info-item {
+            margin-bottom: var(--spacing-lg);
+            padding-bottom: var(--spacing-lg);
+            border-bottom: 1px solid var(--color-gray-border);
+        }
+        
+        .visit__info-item:last-of-type {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+        
+        .visit__info-label {
+            font-size: 0.75rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gray-medium);
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .visit__info-value {
+            font-size: 1.125rem;
+            color: var(--color-black-text);
+            line-height: 1.6;
+        }
+        
+        .visit__cta {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
+            width: 100%;
+            padding: 1.25rem 2rem;
+            margin-top: var(--spacing-lg);
+            background-color: var(--color-black-deep);
+            color: var(--color-white);
+            font-size: 0.875rem;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+            border: 2px solid var(--color-black-deep);
+            transition: var(--transition-medium);
+        }
+        
+        .visit__cta:hover {
+            background-color: transparent;
+            color: var(--color-black-deep);
+        }
+        
+        .visit__cta svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* ================================================
+           FOOTER
+           ================================================ */
+        .footer {
+            padding: var(--spacing-xl) var(--spacing-md);
+            background-color: var(--color-black-deep);
+            color: var(--color-white);
+            text-align: center;
+        }
+        
+        .footer__logo {
+            font-size: 2rem;
+            font-weight: var(--font-weight-bold);
+            letter-spacing: 0.1em;
+            margin-bottom: var(--spacing-xs);
+        }
+        
+        .footer__tagline {
+            font-size: 0.875rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            opacity: 0.7;
+            margin-bottom: var(--spacing-lg);
+        }
+        
+        .footer__divider {
+            width: 60px;
+            height: 1px;
+            background-color: rgba(255, 255, 255, 0.3);
+            margin: var(--spacing-md) auto;
+        }
+        
+        .footer__copyright {
+            font-size: 0.75rem;
+            letter-spacing: 0.1em;
+            opacity: 0.5;
+        }
+        
+        /* ================================================
+           ANIMATIONS ON SCROLL
+           ================================================ */
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+        
+        .animate-on-scroll.is-visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        /* ================================================
+           RESPONSIVE STYLES
+           ================================================ */
+        @media (max-width: 1024px) {
+            .hero__logo-container {
+                flex-direction: column;
+                gap: var(--spacing-md);
+            }
+            
+            .hero__portrait {
+                width: 220px;
+                height: 282px;
+            }
+            
+            .hero__text-logo {
+                width: 320px;
+                height: 254px;
+            }
+            
+            .hero__full-logo {
+                width: 90%;
+                max-width: 500px;
+                height: auto;
+                aspect-ratio: 1.87 / 1;
+            }
+            
+            .legacy__content {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .legacy__portrait {
+                order: -1;
+                max-width: 300px;
+            }
+            
+            .menu__grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .experience__grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .visit__content {
+                grid-template-columns: 1fr;
+            }
+            
+            .visit__map {
+                order: 2;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .nav__links {
+                display: none;
+                position: absolute;
+                top: 80px;
+                left: 0;
+                right: 0;
+                flex-direction: column;
+                background-color: var(--color-white-off);
+                padding: var(--spacing-md);
+                gap: var(--spacing-md);
+                border-bottom: 1px solid var(--color-gray-border);
+            }
+            
+            .nav__links.is-open {
+                display: flex;
+            }
+            
+            .nav__toggle {
+                display: flex;
+            }
+            
+            .hero {
+                padding-top: 120px;
+                min-height: auto;
+            }
+            
+            .hero__portrait {
+                width: 180px;
+                height: 230px;
+            }
+            
+            .hero__text-logo {
+                width: 280px;
+                height: 222px;
+            }
+            
+            .legacy__stats {
+                grid-template-columns: 1fr;
+                gap: var(--spacing-lg);
+            }
+            
+            .menu__grid {
+                grid-template-columns: 1fr;
+                max-width: 400px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+            
+            .visit__info {
+                padding: var(--spacing-md);
+            }
+        }
+        
+        @media (max-width: 480px) {
+            :root {
+                --spacing-lg: 3rem;
+                --spacing-xl: 4rem;
+                --spacing-2xl: 5rem;
+            }
+            
+            .hero__portrait {
+                width: 150px;
+                height: 192px;
+            }
+            
+            .hero__text-logo {
+                width: 240px;
+                height: 190px;
+            }
+            
+            .hero__cta {
+                padding: 0.875rem 1.5rem;
+                font-size: 0.75rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- ================================================
+         NAVIGATION
+         ================================================ -->
+    <nav class="nav" id="nav">
+        <div class="container nav__container">
+            <a href="#" class="nav__logo">
+                Hamza<span>Hotel</span>
+            </a>
+            
+            <div class="nav__links" id="navLinks">
+                <a href="#legacy" class="nav__link">Our Story</a>
+                <a href="#menu" class="nav__link">Menu</a>
+                <a href="#visit" class="nav__link">Visit Us</a>
+                <a href="https://wa.me/918008004202?text=Hi%2C%20I%20would%20like%20to%20place%20an%20order" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="nav__cta">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    WhatsApp
+                </a>
+            </div>
+            
+            <button class="nav__toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- ================================================
+         HERO SECTION
+         ================================================ -->
+    <section class="hero" id="hero">
+        <div class="hero__content">
+            
+            <!-- OPTION 1: Separate Icon + Text Logo (Recommended for large screens) -->
+            <div class="hero__logo-container">
+                <!-- 
+                    FOUNDER PORTRAIT (Icon)
+                    ========================
+                    File: PNG_Icon.svg or PNG_Icon.jpg
+                    Dimensions: 280px × 358px (Aspect Ratio 1:1.28)
+                    Place in: assets/founder-portrait.svg (or .jpg)
+                -->
+                <!-- <div class="hero__portrait">
+                    <img src="assets/Vector Icon.png" 
+                         alt="Mr. Hamza - Founder of Hamza Hotel, 1918"
+                         loading="eager">
+                </div> -->
+                
+                <!-- 
+                    TEXT LOGO
+                    =========
+                    File: Frame_1.svg or Text_Logo.jpg
+                    Dimensions: 400px × 317px (Aspect Ratio 1.26:1)
+                    Place in: assets/text-logo.svg (or .jpg)
+                -->
+                <div class="hero__text-logo">
+                    <img src="assets/Vector Logo(2).png" 
+                         alt="Hamza Hotel - Since 1918 - Over 100 Years of Legendary Taste"
+                         loading="eager">
+                </div>
+            </div>
+            
+            <!-- 
+                OPTION 2: Full Combined Logo (Alternative - uncomment to use)
+                ==============================================================
+                File: PNG_Icon_Logo.svg or PNG_Icon_Logo.jpg
+                Dimensions: 600px × 321px (Aspect Ratio 1.87:1)
+                Place in: assets/full-logo.svg (or .jpg)
+            -->
+            <!--
+            <div class="hero__full-logo">
+                <img src="assets/full-logo.svg" 
+                     alt="Hamza Hotel - Since 1918 - Over 100 Years of Legendary Taste"
+                     loading="eager">
+            </div>
+            -->
+            
+            <p class="hero__tagline">Where every meal is a journey through time</p>
+            
+            <a href="https://wa.me/918008004202?text=Hi%2C%20I%20would%20like%20to%20place%20an%20order" 
+               target="_blank" 
+               rel="noopener noreferrer" 
+               class="hero__cta">
+                <svg viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                </svg>
+                Order on WhatsApp
+            </a>
+        </div>
+        
+        <div class="hero__scroll">
+            <span>Scroll</span>
+            <div class="hero__scroll-icon"></div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         LEGACY / OUR STORY SECTION
+         ================================================ -->
+    <section class="legacy" id="legacy">
+        <div class="container">
+            <header class="legacy__header animate-on-scroll">
+                <p class="headline-sub">Our Legacy</p>
+                <h2 class="headline-section">A Century of Culinary Excellence</h2>
+                <div class="divider">
+                    <div class="divider__stars">
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="legacy__content">
+                <div class="legacy__portrait animate-on-scroll">
+                    <!-- 
+                        FOUNDER PORTRAIT (For Legacy Section)
+                        =====================================
+                        File: PNG_Icon.svg or PNG_Icon.jpg
+                        Container maintains 1:1.28 aspect ratio automatically
+                        Place in: assets/founder-portrait.svg
+                    -->
+                    <div class="legacy__portrait-wrapper">
+                        <img src="assets/PNG Icon.png" 
+                             alt="Mr. Hamza - Founder of Hamza Hotel"
+                             loading="lazy">
+                    </div>
+                </div>
+                
+                <div class="legacy__text animate-on-scroll">
+                    <h3>In 1918, Mr. Hamza opened the doors of a small eatery in the heart of Shivajinagar, Bangalore.</h3>
+                    
+                    <p>What began as a humble establishment serving authentic Muslim cuisine has grown into one of Bangalore's most cherished culinary institutions. For over a century, the Hamza family has preserved the sacred recipes passed down through four generations, ensuring that every dish served today carries the same soul and flavour that captivated Bangalore's food lovers over a hundred years ago.</p>
+                    
+                    <p>Our kitchen follows the time-honoured traditions of slow-cooking, hand-ground spices, and recipes that have remained unchanged since 1918. When you dine at Hamza Hotel, you're not just having a meal — you're experiencing a living piece of Bangalore's culinary heritage.</p>
+                    
+                    <blockquote class="legacy__quote">
+                        "The taste that has united generations, the legacy that continues to inspire."
+                    </blockquote>
+                </div>
+            </div>
+            
+            <div class="legacy__stats animate-on-scroll">
+                <div class="stat">
+                    <div class="stat__number">107</div>
+                    <div class="stat__label">Years of Legacy</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">4</div>
+                    <div class="stat__label">Generations</div>
+                </div>
+                <div class="stat">
+                    <div class="stat__number">3000+</div>
+                    <div class="stat__label">Daily Customers</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         MENU SECTION
+         ================================================ -->
+    <section class="menu" id="menu">
+        <div class="container">
+            <header class="menu__header animate-on-scroll">
+                <p class="headline-sub">Signature Dishes</p>
+                <h2 class="headline-section">Legendary Taste</h2>
+                <div class="divider">
+                    <div class="divider__stars">
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="menu__grid">
+                <!-- 
+                    FOOD IMAGES
+                    ===========
+                    Recommended dimensions: 400px × 400px (1:1 square)
+                    Format: JPG (optimized for web, ~100KB each)
+                    Style: Well-lit, appetizing, can be full color or sepia-toned
+                    Place in: assets/mutton-biryani.jpg, assets/beja-fry.jpg, assets/chicken-kebab.jpg
+                -->
+                
+                <div class="menu__item animate-on-scroll">
+                    <div class="menu__image-wrapper">
+                        <!-- Replace placeholder with actual image -->
+                        <img src="assets/mutton-biryani.jpg" 
+                             alt="Hamza Hotel's Famous Mutton Biryani"
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="menu__placeholder" style="display: none;">
+                            <img src="assets/Untitled design.png" alt="">
+                        </div>
+                    </div>
+                    <h3 class="menu__name">Mutton Biryani</h3>
+                    <p class="menu__desc">The crown jewel of our kitchen</p>
+                </div>
+                
+                <div class="menu__item animate-on-scroll">
+                    <div class="menu__image-wrapper">
+                        <img src="assets/brain-bheja-fry-goat-sheep-600nw-1273469572.webp" 
+                             alt="Hamza Hotel's Signature Beja Fry"
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="menu__placeholder" style="display: none;">
+                            400 × 400<br>Beja Fry
+                        </div>
+                    </div>
+                    <h3 class="menu__name">Beja Fry</h3>
+                    <p class="menu__desc">A delicacy cherished for generations</p>
+                </div>
+                
+                <div class="menu__item animate-on-scroll">
+                    <div class="menu__image-wrapper">
+                        <img src="assets/chicken_kebab.png" 
+                             alt="Hamza Hotel's Tender Chicken Kebab"
+                             loading="lazy"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="menu__placeholder" style="display: none;">
+                            400 × 400<br>Chicken Kebab
+                        </div>
+                    </div>
+                    <h3 class="menu__name">Chicken Kebab</h3>
+                    <p class="menu__desc">Perfectly spiced, melt-in-your-mouth</p>
+                </div>
+            </div>
+            
+            <div class="text-center animate-on-scroll">
+                <a href="https://wa.me/918008004202?text=Hi%2C%20please%20share%20the%20complete%20menu" 
+                   target="_blank" 
+                   rel="noopener noreferrer" 
+                   class="menu__cta">
+                    <svg viewBox="0 0 24 24" fill="currentColor" width="20" height="20">
+                        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                    </svg>
+                    View Full Menu on WhatsApp
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         EXPERIENCE SECTION
+         ================================================ -->
+    <section class="experience" id="experience">
+        <div class="container experience__container">
+            <header class="experience__header animate-on-scroll">
+                <p class="headline-sub" style="color: rgba(255,255,255,0.7);">What Sets Us Apart</p>
+                <h2 class="headline-section">The Hamza Way</h2>
+                <div class="divider">
+                    <div class="divider__stars">
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="experience__grid">
+                <div class="experience__item animate-on-scroll">
+                    <div class="experience__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25"/>
+                        </svg>
+                    </div>
+                    <div class="experience__text">
+                        <h4>Recipes Through Generations</h4>
+                        <p>Authentic recipes passed down through four generations, unchanged since 1918.</p>
+                    </div>
+                </div>
+                
+                <div class="experience__item animate-on-scroll">
+                    <div class="experience__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"/>
+                        </svg>
+                    </div>
+                    <div class="experience__text">
+                        <h4>Authentic Spices</h4>
+                        <p>Hand-selected spices ground fresh daily using traditional methods.</p>
+                    </div>
+                </div>
+                
+                <div class="experience__item animate-on-scroll">
+                    <div class="experience__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M15.362 5.214A8.252 8.252 0 0112 21 8.25 8.25 0 016.038 7.048 8.287 8.287 0 009 9.6a8.983 8.983 0 013.361-6.867 8.21 8.21 0 003 2.48z"/>
+                            <path d="M12 18a3.75 3.75 0 00.495-7.467 5.99 5.99 0 00-1.925 3.546 5.974 5.974 0 01-2.133-1A3.75 3.75 0 0012 18z"/>
+                        </svg>
+                    </div>
+                    <div class="experience__text">
+                        <h4>Slow-Cooked Perfection</h4>
+                        <p>Every dish is prepared with patience, allowing flavours to develop naturally.</p>
+                    </div>
+                </div>
+                
+                <div class="experience__item animate-on-scroll">
+                    <div class="experience__icon">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <path d="M9 12.75L11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 01-1.043 3.296 3.745 3.745 0 01-3.296 1.043A3.745 3.745 0 0112 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 01-3.296-1.043 3.745 3.745 0 01-1.043-3.296A3.745 3.745 0 013 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 011.043-3.296 3.746 3.746 0 013.296-1.043A3.746 3.746 0 0112 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 013.296 1.043 3.746 3.746 0 011.043 3.296A3.745 3.745 0 0121 12z"/>
+                        </svg>
+                    </div>
+                    <div class="experience__text">
+                        <h4>Same Taste Since 1918</h4>
+                        <p>Our commitment to quality ensures the legendary taste remains unchanged.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <p class="experience__quote animate-on-scroll">
+                "Where every meal is a journey through time, and every bite tells the story of a hundred years."
+            </p>
+        </div>
+    </section>
+
+    <!-- ================================================
+         VISIT US SECTION
+         ================================================ -->
+    <section class="visit" id="visit">
+        <div class="container">
+            <header class="visit__header animate-on-scroll">
+                <p class="headline-sub">Find Us</p>
+                <h2 class="headline-section">Visit Us</h2>
+                <div class="divider">
+                    <div class="divider__stars">
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                        <span class="divider__star"></span>
+                    </div>
+                </div>
+            </header>
+            
+            <div class="visit__content">
+                <div class="visit__info animate-on-scroll">
+                    <div class="visit__info-item">
+                        <div class="visit__info-label">Address</div>
+                        <div class="visit__info-value">
+                            25, HKP Road,<br>
+                            Swamy Shivanandapuram,<br>
+                            Shivaji Nagar, Bengaluru,<br>
+                            Karnataka 560051
+                        </div>
+                    </div>
+                    
+                    <div class="visit__info-item">
+                        <div class="visit__info-label">Hours</div>
+                        <div class="visit__info-value">
+                            Open Daily<br>
+                            7:00 AM – 5:00 AM<br>
+                            <em style="font-size: 0.875rem; color: var(--color-gray-medium);">(22 hours of service)</em>
+                        </div>
+                    </div>
+                    
+                    <div class="visit__info-item">
+                        <div class="visit__info-label">Contact</div>
+                        <div class="visit__info-value">
+                            <a href="tel:+918008004202" style="color: inherit;">+91 800 800 4202</a>
+                        </div>
+                    </div>
+                    
+                    <a href="https://wa.me/918008004202?text=Hi%2C%20I%20would%20like%20to%20make%20a%20reservation" 
+                       target="_blank" 
+                       rel="noopener noreferrer" 
+                       class="visit__cta">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+                        </svg>
+                        Message on WhatsApp
+                    </a>
+                </div>
+                
+                <div class="visit__map animate-on-scroll">
+                    <!-- Google Maps Embed -->
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.714088653068!2d77.59283!3d12.988!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae167a8ef2c6b5%3A0x8c7c6e44a0a0!2sHamza%20Hotel!5e0!3m2!1sen!2sin!4v1234567890" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Hamza Hotel Location on Google Maps">
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================================================
+         FOOTER
+         ================================================ -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer__logo">Hamza Hotel</div>
+            <div class="footer__tagline">Est. 1918 · Over 100 Years of Legendary Taste</div>
+            <div class="footer__divider"></div>
+            <p class="footer__copyright">
+                © 2024 Hamza Hotel. All Rights Reserved.
+            </p>
+        </div>
+    </footer>
+
+    <!-- ================================================
+         JAVASCRIPT
+         ================================================ -->
+    <script>
+        // Navigation scroll effect
+        const nav = document.getElementById('nav');
+        let lastScroll = 0;
+        
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            
+            if (currentScroll > 50) {
+                nav.classList.add('nav--scrolled');
+            } else {
+                nav.classList.remove('nav--scrolled');
+            }
+            
+            lastScroll = currentScroll;
+        });
+        
+        // Mobile navigation toggle
+        const navToggle = document.getElementById('navToggle');
+        const navLinks = document.getElementById('navLinks');
+        
+        navToggle.addEventListener('click', () => {
+            navLinks.classList.toggle('is-open');
+        });
+        
+        // Close mobile nav when clicking a link
+        navLinks.querySelectorAll('.nav__link').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('is-open');
+            });
+        });
+        
+        // Scroll animations
+        const animateElements = document.querySelectorAll('.animate-on-scroll');
+        
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('is-visible');
+                }
+            });
+        }, {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        });
+        
+        animateElements.forEach(el => observer.observe(el));
+        
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
